@@ -1,0 +1,52 @@
+[project]
+name = "xipfax-sdk"
+version = "0.1.0"
+description = "XipFax's API for Python, generated from its OpenAPI document."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]
+authors = [{ name = "XipFax" }]
+maintainers = [{ name = "XipFax", email = "help@xipfax.com" }]
+keywords = ["xipfax", "fax", "api", "sdk"]
+classifiers = ["Typing :: Typed"]
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.23.1,<0.29.0",
+    "attrs>=22.2.0",
+]
+
+[project.urls]
+Homepage = "https://xipfax.com"
+Documentation = "https://developer.xipfax.com/docs/"
+Repository = "https://github.com/XipHubHQ/xipfax-python"
+
+[dependency-groups]
+dev = [
+    "openapi-python-client==0.29.1",
+    "ruff",
+    "mypy",
+    "pytest",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.28,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "xipfax_sdk"
+module-root = ""
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["F", "I", "UP"]
+
+[tool.mypy]
+strict = true
+files = ["xipfax_sdk", "tests", "examples"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The specs read the package from this checkout: uv sync --no-install-project installs it nowhere.
+pythonpath = ["."]
