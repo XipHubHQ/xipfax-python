@@ -125,10 +125,10 @@ same key within 24 hours, the request is answered as it was the first time rathe
 so a retry after a timeout can't send a fax twice. The SDK makes up no key itself: one it made would
 be new on each try, and protect nothing.
 
-The answer to a request sent again keeps none of its signed links, nor an endpoint's secret:
-`upload`, a document's `url` and an endpoint's `secret` come back None. So an upload that
-`add_document` gave, asked for again with its key, has no link to send the bytes to. Take that
-document out with `remove_document`, and add it again with a new key. An endpoint whose first answer
+The answer to a request sent again keeps none of its signed links, nor an endpoint's secret: a
+document's `url` and an endpoint's `secret` come back None. `upload` is signed again instead while
+its document is still uploading: asked for again with its key, `add_document` gives a fresh link to
+send the bytes to, and None once the document is ready or removed. An endpoint whose first answer
 you lost has no secret to check its deliveries by: remove it with `remove_webhook_endpoint`, and
 register it again with a new key.
 
