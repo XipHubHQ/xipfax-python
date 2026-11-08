@@ -46,7 +46,7 @@ jobs:
             exit 1
           fi
           expected=$(printf '%s\n' "xipfax_sdk-$version-py3-none-any.whl" "xipfax_sdk-$version.tar.gz")
-          built=$(ls dist | LC_ALL=C sort)
+          built=$(cd dist && printf '%s\n' * | LC_ALL=C sort)
           if [ "$built" != "$expected" ]; then
             echo "dist/ should hold the sdist and the wheel of $version, the tag's version, alone. It holds:" >&2
             echo "$built" >&2
