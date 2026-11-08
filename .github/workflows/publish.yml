@@ -1,0 +1,72 @@
+# The SDK's publish to PyPI. A release of this repository, once published, starts it, and nothing
+# else does. The build job checks out the release's tag, makes the environment uv.lock pins with no
+# cache, and runs scripts/gates.sh: the SDK as openapi.json generates it, failing on any drift, then
+# ruff, mypy and the build, all offline. Then it runs the specs, builds the sdist and the wheel into
+# dist/ offline, and checks that both carry the tag's version. Only the publish job may ask GitHub
+# for an OIDC token, which PyPI takes from this workflow in the pypi environment as the project's
+# trusted publisher, so no token or secret is stored anywhere. That job uploads the two files the
+# build job made, with their attestations. Each action is pinned by its commit, its version beside it.
+name: publish
+
+on:
+  release:
+    types: [published]
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: "0.9.28"
+          python-version: "3.14"
+          enable-cache: false
+      - name: Make the environment uv.lock pins
+        run: uv sync --locked --no-install-project --no-build
+      - name: Run the gate
+        run: sh scripts/gates.sh
+      - name: Run the specs
+        run: uv run --no-sync pytest
+      - name: Build the sdist and the wheel
+        run: uv build --offline --out-dir dist
+      - name: Check that both carry the release's version
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version="${TAG#v}"
+          if [ "$TAG" != "v$version" ]; then
+            echo "The release's tag, $TAG, isn't v and the package's version, as v0.1.0 is." >&2
+            exit 1
+          fi
+          expected=$(printf '%s\n' "xipfax_sdk-$version-py3-none-any.whl" "xipfax_sdk-$version.tar.gz")
+          built=$(ls dist | LC_ALL=C sort)
+          if [ "$built" != "$expected" ]; then
+            echo "dist/ should hold the sdist and the wheel of $version, the tag's version, alone. It holds:" >&2
+            echo "$built" >&2
+            exit 1
+          fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
