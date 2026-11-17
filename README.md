@@ -4,12 +4,6 @@ Send faxes from your code with [XipFax](https://xipfax.com): quote a fax, add yo
 number or a government office, and follow each fax until it's delivered. The SDK is generated from
 the API's own document, so its calls and models are the API's. It runs on Python 3.11 or later.
 
-## Install
-
-```sh
-pip install xipfax-sdk
-```
-
 ## Make an API key
 
 Sign in to the [developer console](https://developer.xipfax.com/console/), open API keys and make a
@@ -159,10 +153,6 @@ it, and `scripts/generate.sh` makes the SDK from it with
 client and one module for each of the document's operations. `xipfax_sdk/xipfax.py` and
 `xipfax_sdk/py.typed` are the only files in `xipfax_sdk` edited by hand. To update the SDK, copy the
 new document over `openapi.json`, run `scripts/generate.sh`, and commit what changes.
-
-## Help
-
-Write to [help@xipfax.com](mailto:help@xipfax.com).
 
 ## License
 
