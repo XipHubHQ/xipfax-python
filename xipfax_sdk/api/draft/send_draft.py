@@ -111,16 +111,16 @@ def sync_detailed(
     """Send the draft
 
      Sends the draft to the number or the office you name, as far as you let your credential send without
-    you. Your API key sends it on your plan, its pages counted there; or, where you have no plan, on the
-    card you saved, its price held until the fax ends. An app you connected sends it on your plan alone,
-    and only where you let it send straight away. Otherwise nothing is sent or held, the draft keeps
-    where you named, and the answer gives the link where the fax waits for you on xipfax.com. So does a
-    draft whose cover page is on, which xipfax.com draws there: a send to an office that asks for a
-    cover page marked Confidential turns it on. So do a card its bank refused or asked you to confirm,
-    and a send past the 20 a day your credentials make without you. `paid_by` and `confirm_url` say
-    which. A send refused changes nothing of the draft. Name the draft’s documents as `GET /draft` gives
-    them: a draft whose documents aren’t these, in this order, is refused `draft_changed`, so that
-    nothing you didn’t name is sent.
+    you. Your API key sends it on your plan, where it covers the number, its pages counted there; or,
+    where you have no plan, on the card you saved, its price held until the fax ends. An app you
+    connected sends it on your plan alone, where it covers the number, and only where you let it send
+    straight away. Otherwise nothing is sent or held, the draft keeps where you named, and the answer
+    gives the link where the fax waits for you on xipfax.com. So does a draft whose cover page is on,
+    which xipfax.com draws there: a send to an office that asks for a cover page marked Confidential
+    turns it on. So do a card its bank refused or asked you to confirm, and a send past the 20 a day
+    your credentials make without you. `paid_by` and `confirm_url` say which. A send refused changes
+    nothing of the draft. Name the draft’s documents as `GET /draft` gives them: a draft whose documents
+    aren’t these, in this order, is refused `draft_changed`, so that nothing you didn’t name is sent.
 
     Args:
         idempotency_key (str):
@@ -155,16 +155,16 @@ def sync(
     """Send the draft
 
      Sends the draft to the number or the office you name, as far as you let your credential send without
-    you. Your API key sends it on your plan, its pages counted there; or, where you have no plan, on the
-    card you saved, its price held until the fax ends. An app you connected sends it on your plan alone,
-    and only where you let it send straight away. Otherwise nothing is sent or held, the draft keeps
-    where you named, and the answer gives the link where the fax waits for you on xipfax.com. So does a
-    draft whose cover page is on, which xipfax.com draws there: a send to an office that asks for a
-    cover page marked Confidential turns it on. So do a card its bank refused or asked you to confirm,
-    and a send past the 20 a day your credentials make without you. `paid_by` and `confirm_url` say
-    which. A send refused changes nothing of the draft. Name the draft’s documents as `GET /draft` gives
-    them: a draft whose documents aren’t these, in this order, is refused `draft_changed`, so that
-    nothing you didn’t name is sent.
+    you. Your API key sends it on your plan, where it covers the number, its pages counted there; or,
+    where you have no plan, on the card you saved, its price held until the fax ends. An app you
+    connected sends it on your plan alone, where it covers the number, and only where you let it send
+    straight away. Otherwise nothing is sent or held, the draft keeps where you named, and the answer
+    gives the link where the fax waits for you on xipfax.com. So does a draft whose cover page is on,
+    which xipfax.com draws there: a send to an office that asks for a cover page marked Confidential
+    turns it on. So do a card its bank refused or asked you to confirm, and a send past the 20 a day
+    your credentials make without you. `paid_by` and `confirm_url` say which. A send refused changes
+    nothing of the draft. Name the draft’s documents as `GET /draft` gives them: a draft whose documents
+    aren’t these, in this order, is refused `draft_changed`, so that nothing you didn’t name is sent.
 
     Args:
         idempotency_key (str):
@@ -194,16 +194,16 @@ async def asyncio_detailed(
     """Send the draft
 
      Sends the draft to the number or the office you name, as far as you let your credential send without
-    you. Your API key sends it on your plan, its pages counted there; or, where you have no plan, on the
-    card you saved, its price held until the fax ends. An app you connected sends it on your plan alone,
-    and only where you let it send straight away. Otherwise nothing is sent or held, the draft keeps
-    where you named, and the answer gives the link where the fax waits for you on xipfax.com. So does a
-    draft whose cover page is on, which xipfax.com draws there: a send to an office that asks for a
-    cover page marked Confidential turns it on. So do a card its bank refused or asked you to confirm,
-    and a send past the 20 a day your credentials make without you. `paid_by` and `confirm_url` say
-    which. A send refused changes nothing of the draft. Name the draft’s documents as `GET /draft` gives
-    them: a draft whose documents aren’t these, in this order, is refused `draft_changed`, so that
-    nothing you didn’t name is sent.
+    you. Your API key sends it on your plan, where it covers the number, its pages counted there; or,
+    where you have no plan, on the card you saved, its price held until the fax ends. An app you
+    connected sends it on your plan alone, where it covers the number, and only where you let it send
+    straight away. Otherwise nothing is sent or held, the draft keeps where you named, and the answer
+    gives the link where the fax waits for you on xipfax.com. So does a draft whose cover page is on,
+    which xipfax.com draws there: a send to an office that asks for a cover page marked Confidential
+    turns it on. So do a card its bank refused or asked you to confirm, and a send past the 20 a day
+    your credentials make without you. `paid_by` and `confirm_url` say which. A send refused changes
+    nothing of the draft. Name the draft’s documents as `GET /draft` gives them: a draft whose documents
+    aren’t these, in this order, is refused `draft_changed`, so that nothing you didn’t name is sent.
 
     Args:
         idempotency_key (str):
@@ -236,16 +236,16 @@ async def asyncio(
     """Send the draft
 
      Sends the draft to the number or the office you name, as far as you let your credential send without
-    you. Your API key sends it on your plan, its pages counted there; or, where you have no plan, on the
-    card you saved, its price held until the fax ends. An app you connected sends it on your plan alone,
-    and only where you let it send straight away. Otherwise nothing is sent or held, the draft keeps
-    where you named, and the answer gives the link where the fax waits for you on xipfax.com. So does a
-    draft whose cover page is on, which xipfax.com draws there: a send to an office that asks for a
-    cover page marked Confidential turns it on. So do a card its bank refused or asked you to confirm,
-    and a send past the 20 a day your credentials make without you. `paid_by` and `confirm_url` say
-    which. A send refused changes nothing of the draft. Name the draft’s documents as `GET /draft` gives
-    them: a draft whose documents aren’t these, in this order, is refused `draft_changed`, so that
-    nothing you didn’t name is sent.
+    you. Your API key sends it on your plan, where it covers the number, its pages counted there; or,
+    where you have no plan, on the card you saved, its price held until the fax ends. An app you
+    connected sends it on your plan alone, where it covers the number, and only where you let it send
+    straight away. Otherwise nothing is sent or held, the draft keeps where you named, and the answer
+    gives the link where the fax waits for you on xipfax.com. So does a draft whose cover page is on,
+    which xipfax.com draws there: a send to an office that asks for a cover page marked Confidential
+    turns it on. So do a card its bank refused or asked you to confirm, and a send past the 20 a day
+    your credentials make without you. `paid_by` and `confirm_url` say which. A send refused changes
+    nothing of the draft. Name the draft’s documents as `GET /draft` gives them: a draft whose documents
+    aren’t these, in this order, is refused `draft_changed`, so that nothing you didn’t name is sent.
 
     Args:
         idempotency_key (str):

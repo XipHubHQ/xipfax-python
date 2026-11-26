@@ -18,7 +18,9 @@ class Quote:
     """
     Attributes:
         pages (int): The pages quoted.
-        price (QuotePrice): What the fax costs without a plan. A fax sent on the plan counts its pages there instead.
+        price (QuotePrice): What the fax costs without a plan, and on the plan where it doesn’t cover the number.
+        plan_covers (bool): Whether the plan covers a fax to the number: sent on the plan, its pages count there instead
+            of the price.
         price_shown (str): The price as XipFax prints it: $4.99.
         terms (str): How the price is made, as XipFax’s pages say it: the first pages, then each page.
         price_list (str): The version of XipFax’s price list the quote is from.
@@ -26,6 +28,7 @@ class Quote:
 
     pages: int
     price: QuotePrice
+    plan_covers: bool
     price_shown: str
     terms: str
     price_list: str
@@ -35,6 +38,8 @@ class Quote:
         pages = self.pages
 
         price = self.price.to_dict()
+
+        plan_covers = self.plan_covers
 
         price_shown = self.price_shown
 
@@ -48,6 +53,7 @@ class Quote:
             {
                 "pages": pages,
                 "price": price,
+                "plan_covers": plan_covers,
                 "price_shown": price_shown,
                 "terms": terms,
                 "price_list": price_list,
@@ -65,6 +71,8 @@ class Quote:
 
         price = QuotePrice.from_dict(d.pop("price"))
 
+        plan_covers = d.pop("plan_covers")
+
         price_shown = d.pop("price_shown")
 
         terms = d.pop("terms")
@@ -74,6 +82,7 @@ class Quote:
         quote = cls(
             pages=pages,
             price=price,
+            plan_covers=plan_covers,
             price_shown=price_shown,
             terms=terms,
             price_list=price_list,

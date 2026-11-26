@@ -65,6 +65,7 @@ def refusal(code: str, message: str) -> dict[str, object]:
 QUOTE: dict[str, object] = {
     "pages": 1,
     "price": {"amount_minor": 100, "currency": "USD"},
+    "plan_covers": False,
     "price_shown": "$1.00",
     "terms": "The stand-in’s terms.",
     "price_list": "stand-in",
@@ -91,6 +92,7 @@ NO_PLAN: dict[str, object] = {"plan": None}
 # that answer 204.
 SUCCESS: dict[str, str] = {
     "getQuote": json_of(QUOTE),
+    "quoteNumber": json_of(QUOTE),
     "getDraft": json_of({"id": "fax_1", "documents": []}),
     "addDocument": json_of({"document": document("doc_1", "letter.pdf"), "upload": None}),
     "completeDocument": json_of(document("doc_1", "letter.pdf")),

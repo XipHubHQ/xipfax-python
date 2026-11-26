@@ -14,7 +14,7 @@ class PlanPages:
     """The month’s pages, sent and received together.
 
     Attributes:
-        used (int): The pages sent and received this month.
+        used (int): The pages sent and received on the plan this month. A fax paid on its own isn’t counted there.
         included (int): The pages the plan includes each month.
         resets_at (str): When the month’s pages start again.
     """

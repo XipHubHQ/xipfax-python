@@ -24,7 +24,8 @@ class Sent:
                 its price held on the card you saved until it ends, taken once it is delivered and let go if it fails. Null
                 where it isn’t sent, nothing held: `confirm_url` says where it waits. An open set: read what you know.
             confirm_url (None | str): Where the fax waits for you, where it isn’t sent: your draft on xipfax.com, once you
-                sign in, where you look it over and send it, paying for it there where you have no plan. Null once it is sent.
+                sign in, where you look it over and send it, paying for it there where you have no plan, or where it doesn’t
+                cover the number. Null once it is sent.
     """
 
     fax: Fax

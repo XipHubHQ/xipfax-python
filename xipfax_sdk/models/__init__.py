@@ -25,6 +25,7 @@ from .plan_answer import PlanAnswer
 from .plan_number import PlanNumber
 from .plan_pages import PlanPages
 from .quote import Quote
+from .quote_body import QuoteBody
 from .quote_price import QuotePrice
 from .send_draft import SendDraft
 from .sent import Sent
@@ -56,6 +57,7 @@ __all__ = (
     "PlanNumber",
     "PlanPages",
     "Quote",
+    "QuoteBody",
     "QuotePrice",
     "SendDraft",
     "Sent",
