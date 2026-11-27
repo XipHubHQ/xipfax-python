@@ -16,8 +16,8 @@ class SendDraft:
     Attributes:
         document_ids (list[str]): The draft’s documents, as `GET /draft` names them, in its order: a draft whose
             documents aren’t these, in this order, is refused `draft_changed`, so that nothing you didn’t name is sent.
-        fax_number (str | Unset): The number to send it to, in the US, its territories or Canada, written as you like,
-            such as `+1 202 555 0143`.
+        fax_number (str | Unset): The fax number, with its country code, such as `+44 20 7946 0958`; a number in the US,
+            its territories or Canada needs none.
         office_id (str | Unset): Or the office to send it to, by its id on XipFax’s list (`GET /offices`), which gives
             its number.
     """

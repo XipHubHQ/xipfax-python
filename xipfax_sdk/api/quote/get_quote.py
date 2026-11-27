@@ -77,8 +77,10 @@ def sync_detailed(
 ) -> Response[APIError | Quote]:
     """Quote a fax
 
-     The price of one fax of so many pages, sent without a plan, from XipFax’s price list: what its
-    checkout charges. A fax sent on the plan counts its pages there instead.
+     The price of one fax of so many pages to a fax number in the US, its territories or Canada, sent
+    without a plan, from XipFax’s price list: what its checkout charges. `POST /quote` gives a fax’s
+    price to the number you name. `plan_covers` says whether the plan covers the number: a fax sent on
+    the plan counts its pages there instead.
 
     Args:
         pages (int): The pages to send, from 1 to 250.
@@ -109,8 +111,10 @@ def sync(
 ) -> APIError | Quote | None:
     """Quote a fax
 
-     The price of one fax of so many pages, sent without a plan, from XipFax’s price list: what its
-    checkout charges. A fax sent on the plan counts its pages there instead.
+     The price of one fax of so many pages to a fax number in the US, its territories or Canada, sent
+    without a plan, from XipFax’s price list: what its checkout charges. `POST /quote` gives a fax’s
+    price to the number you name. `plan_covers` says whether the plan covers the number: a fax sent on
+    the plan counts its pages there instead.
 
     Args:
         pages (int): The pages to send, from 1 to 250.
@@ -136,8 +140,10 @@ async def asyncio_detailed(
 ) -> Response[APIError | Quote]:
     """Quote a fax
 
-     The price of one fax of so many pages, sent without a plan, from XipFax’s price list: what its
-    checkout charges. A fax sent on the plan counts its pages there instead.
+     The price of one fax of so many pages to a fax number in the US, its territories or Canada, sent
+    without a plan, from XipFax’s price list: what its checkout charges. `POST /quote` gives a fax’s
+    price to the number you name. `plan_covers` says whether the plan covers the number: a fax sent on
+    the plan counts its pages there instead.
 
     Args:
         pages (int): The pages to send, from 1 to 250.
@@ -166,8 +172,10 @@ async def asyncio(
 ) -> APIError | Quote | None:
     """Quote a fax
 
-     The price of one fax of so many pages, sent without a plan, from XipFax’s price list: what its
-    checkout charges. A fax sent on the plan counts its pages there instead.
+     The price of one fax of so many pages to a fax number in the US, its territories or Canada, sent
+    without a plan, from XipFax’s price list: what its checkout charges. `POST /quote` gives a fax’s
+    price to the number you name. `plan_covers` says whether the plan covers the number: a fax sent on
+    the plan counts its pages there instead.
 
     Args:
         pages (int): The pages to send, from 1 to 250.

@@ -83,8 +83,7 @@ def sync_detailed(
     """Read a fax’s confirmation
 
      A delivered fax’s confirmation, by a link that reads it for a few minutes: one page that says who
-    received how many pages, from whom and when, and none of your pages, so you can pass it on. A fax
-    not delivered has none.
+    received how many pages, from whom and when. A fax not delivered has none.
 
     Args:
         fax_id (str):
@@ -116,8 +115,7 @@ def sync(
     """Read a fax’s confirmation
 
      A delivered fax’s confirmation, by a link that reads it for a few minutes: one page that says who
-    received how many pages, from whom and when, and none of your pages, so you can pass it on. A fax
-    not delivered has none.
+    received how many pages, from whom and when. A fax not delivered has none.
 
     Args:
         fax_id (str):
@@ -144,8 +142,7 @@ async def asyncio_detailed(
     """Read a fax’s confirmation
 
      A delivered fax’s confirmation, by a link that reads it for a few minutes: one page that says who
-    received how many pages, from whom and when, and none of your pages, so you can pass it on. A fax
-    not delivered has none.
+    received how many pages, from whom and when. A fax not delivered has none.
 
     Args:
         fax_id (str):
@@ -175,8 +172,7 @@ async def asyncio(
     """Read a fax’s confirmation
 
      A delivered fax’s confirmation, by a link that reads it for a few minutes: one page that says who
-    received how many pages, from whom and when, and none of your pages, so you can pass it on. A fax
-    not delivered has none.
+    received how many pages, from whom and when. A fax not delivered has none.
 
     Args:
         fax_id (str):

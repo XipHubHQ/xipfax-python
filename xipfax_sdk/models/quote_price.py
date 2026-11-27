@@ -11,7 +11,7 @@ T = TypeVar("T", bound="QuotePrice")
 
 @_attrs_define
 class QuotePrice:
-    """What the fax costs without a plan. A fax sent on the plan counts its pages there instead.
+    """What the fax costs without a plan, and on the plan where it doesn’t cover the number.
 
     Attributes:
         amount_minor (int): In the currency’s smallest unit: cents.

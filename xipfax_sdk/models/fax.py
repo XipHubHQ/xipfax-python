@@ -27,7 +27,7 @@ class Fax:
             a draft, once it has ended, and for a fax received. An open set.
         office_id (None | str): The office it went to, by its id on XipFax’s list (`GET /offices`); null for a number
             typed, and for a fax received.
-        to_number (None | str): The number it went to, `+1` and ten digits; for a fax received, your number it came to.
+        to_number (None | str): The number it went to, in E.164; for a fax received, your number it came to.
         from_number (None | str): For a fax you sent, the number it went from: your XipFax number, or XipFax’s where you
             have none; for your draft, null; for a fax received, the caller’s number in E.164, null where the caller’s line
             gave none.
@@ -39,7 +39,8 @@ class Fax:
         finished_at (None | str): When it was delivered or failed for good; null until then.
         retry_at (None | str): When it is tried again, while a failed try waits for the next; null otherwise.
         failure (None | str): Why its last try failed: `no_answer`, `busy`, `call_dropped`, `declined`,
-            `not_a_fax_number`, or `ours` for a failure on XipFax’s side. Null where none failed. An open set.
+            `not_a_fax_number`, `account_sending_stopped` once your account can’t send faxes, or `ours` for a failure on
+            XipFax’s side. Null where none failed. An open set.
         time_zone (None | str): The time zone its confirmation tells its times in, as the IANA database names it; null
             for a fax received.
         sender_name (None | str): For a fax you sent, the sender’s name its header line gave.

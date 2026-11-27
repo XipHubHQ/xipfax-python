@@ -6,7 +6,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]
 authors = [{ name = "XipFax" }]
-maintainers = [{ name = "XipFax", email = "help@xipfax.com" }]
+maintainers = [{ name = "XipFax" }]
 keywords = ["xipfax", "fax", "api", "sdk"]
 classifiers = ["Typing :: Typed"]
 requires-python = ">=3.11"

@@ -39,8 +39,9 @@ READS = 30
 # What the step that sends says first, as the docs' quickstart says it.
 REAL_AND_CHARGED = (
     "This step sends a real fax, and it’s charged. It goes to the number you name, so name one "
-    "of your own. Its pages count on your plan, or where you have no plan its price is held on "
-    "the card you saved, and taken once it’s delivered. A fax that fails costs nothing."
+    "of your own. Its pages count on your plan where it covers the number, or where you have no "
+    "plan its price is held on the card you saved, and taken once it’s delivered. A fax that "
+    "fails costs nothing."
 )
 
 T = TypeVar("T")
@@ -75,7 +76,10 @@ def quickstart(xipfax: XipFax, given: Given) -> None:
     prints."""
     # 1. What a fax costs. This costs nothing, and it shows your key works.
     quote = answered(get_quote.sync(client=xipfax, pages=1))
-    given.say(f"A one-page fax costs {quote.price_shown} without a plan: {quote.terms}")
+    given.say(
+        "A one-page fax to a number in the US, its territories or Canada costs "
+        f"{quote.price_shown} without a plan: {quote.terms}"
+    )
 
     # 2. Where a form goes: the offices that take Form 2848 from Ohio, and their numbers. Also free.
     offices = answered(list_offices.sync(client=xipfax, search="Form 2848", place="OH", limit=3))

@@ -24,9 +24,17 @@ from xipfax_sdk.api.draft import (
 from xipfax_sdk.api.faxes import get_confirmation, get_fax, list_faxes
 from xipfax_sdk.api.offices import list_offices
 from xipfax_sdk.api.plan import get_plan
-from xipfax_sdk.api.quote import get_quote
+from xipfax_sdk.api.quote import get_quote, quote_number
 from xipfax_sdk.api.webhook_endpoints import register_webhook_endpoint, remove_webhook_endpoint
-from xipfax_sdk.models import APIError, Fax, FaxEvent, NewDocument, NewWebhookEndpoint, SendDraft
+from xipfax_sdk.models import (
+    APIError,
+    Fax,
+    FaxEvent,
+    NewDocument,
+    NewWebhookEndpoint,
+    QuoteBody,
+    SendDraft,
+)
 
 API_KEY = "xipfax_key_live_example"
 
@@ -34,6 +42,9 @@ API_KEY = "xipfax_key_live_example"
 # what its call answered.
 CALLS: dict[str, Callable[[XipFax], object]] = {
     "getQuote": lambda xipfax: get_quote.sync(client=xipfax, pages=3),
+    "quoteNumber": lambda xipfax: quote_number.sync(
+        client=xipfax, body=QuoteBody(pages=3, to_number="+44 20 7946 0958")
+    ),
     "getDraft": lambda xipfax: get_draft.sync(client=xipfax),
     "addDocument": lambda xipfax: add_document.sync(
         client=xipfax,
